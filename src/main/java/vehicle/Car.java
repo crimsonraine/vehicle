@@ -20,20 +20,19 @@ public abstract class Car {
         this.mileage = 0;
     }
 
-    // implement
     public boolean canDrive(double miles) {
         if (miles < 0) throw new IllegalArgumentException();
-        return false;
+        return miles <= getRemainingRange();
     }
 
     public abstract void drive(double miles);
 
     public String toString() {
-        return null;
+        return this.make + " " + this.model + " (" + this.mileage + " mi)";
     }
 
     public double getMileage() {
-        return 0;
+        return mileage;
     }
 
     public String getMake() {
@@ -46,10 +45,12 @@ public abstract class Car {
 
     public abstract double getRemainingRange();
 
+    // implement
     protected void addMileage(double miles) {
 
     }
 
+    // implement
     public int roadTrip(List<Double> milesEachDay) {
         return 0;
     }
