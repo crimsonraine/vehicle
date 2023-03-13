@@ -25,7 +25,7 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
 
     @Override
     public void driveAutonomously(double miles) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'driveAutonomously'");
+        if (miles < 0) throw new IllegalArgumentException();
+        drive(Math.min(getRemainingRange()/2, miles));
     }
 }
