@@ -45,14 +45,23 @@ public abstract class Car {
 
     public abstract double getRemainingRange();
 
-    // implement
     protected void addMileage(double miles) {
-
+        if (miles < 0) throw new IllegalArgumentException();
+        mileage += miles;
     }
 
-    // implement
     public int roadTrip(List<Double> milesEachDay) {
-        return 0;
+        int dayCount = 0;
+        for (double routeLength : milesEachDay) {
+            if (routeLength < 0) throw new IllegalArgumentException();
+            if (routeLength < getRemainingRange()) {
+                return dayCount;
+            } else {
+                drive(routeLength);
+                dayCount += 1;
+            }
+        }
+        return dayCount;
     }
 
 }
