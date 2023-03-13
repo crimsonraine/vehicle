@@ -91,5 +91,6 @@ public class GasPoweredCar extends Car {
      */
     protected void decreaseFuelLevel(double miles) {
         this.fuelLevel -= miles / this.mpg;
+        this.mileage += miles;
     }
 }
