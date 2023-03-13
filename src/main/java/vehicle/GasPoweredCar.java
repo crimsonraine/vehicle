@@ -1,7 +1,10 @@
 package vehicle;
 
 public class GasPoweredCar extends Car {
-    private double gasLevel;
+    double mpg;
+    double fuelCapacityGallons;
+    double fuelLevel;
+
     /**
      * Note: Start with a full tank of gas
      * 
@@ -11,6 +14,9 @@ public class GasPoweredCar extends Car {
     public GasPoweredCar(String make, String model, double startingMileage, double mpg, double fuelCapacityGallons) {
         super(make, model, startingMileage);
         if (mpg <= 0 || fuelCapacityGallons <= 0) throw new IllegalArgumentException();
+        this.mpg = mpg;
+        this.fuelCapacityGallons = fuelCapacityGallons;
+        this.fuelLevel = fuelCapacityGallons;
     }
 
     /**
@@ -20,7 +26,7 @@ public class GasPoweredCar extends Car {
      *                                  non-positive.
      */
     public GasPoweredCar(String make, String model, double mpg, double fuelCapacityGallons) {
-
+        this(make, model, 0, mpg, fuelCapacityGallons);
     }
 
     /**
@@ -31,27 +37,33 @@ public class GasPoweredCar extends Car {
      *                                  current fuel.
      */
     public void drive(double miles) {
-
+        if (miles < 0) throw new IllegalArgumentException();
+        if (canDrive(miles)) {
+            drive(miles);
+            decreaseFuelLevel(miles);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /** Returns how many miles can be driven on one gallon of gas. */
     public double getMPG() {
-        return 0.0;
+        return this.mpg;
     }
 
     /** Returns how many gallons of fuel are currently in the car. */
     public double getFuelLevel() {
-        return 0.0;
+        return this.fuelLevel;
     }
 
     /** Returns how many gallons of fuel the car can hold at max. */
     public double getFuelCapacity() {
-        return 0.0;
+        return this.fuelCapacityGallons;
     }
 
     /** Refuels the car to max fuel capacity. */
     public void refillTank() {
-
+        this.fuelLevel = this.fuelCapacityGallons;
     }
 
     /**
@@ -59,7 +71,7 @@ public class GasPoweredCar extends Car {
      * refueling.
      */
     public double getRemainingRange() {
-        return 0.0;
+        return this.fuelLevel * this.mpg;
     }
 
     /**
@@ -69,7 +81,8 @@ public class GasPoweredCar extends Car {
      *                                  would overfill the tank.
      */
     public void refillTank(double gallons) {
-
+        if (gallons < 0 || this.fuelLevel + gallons > this.fuelCapacityGallons) throw new IllegalArgumentException();
+        this.fuelLevel += gallons;
     }
 
     /**
@@ -77,6 +90,6 @@ public class GasPoweredCar extends Car {
      * mpg and the number of miles passed as an argument.
      */
     protected void decreaseFuelLevel(double miles) {
-
+        this.fuelLevel -= miles / this.mpg;
     }
 }
