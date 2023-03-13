@@ -1,6 +1,7 @@
 package vehicle;
 
-public class GasPoweredCar {
+public class GasPoweredCar extends Car {
+    private double gasLevel;
     /**
      * Note: Start with a full tank of gas
      * 
@@ -8,7 +9,8 @@ public class GasPoweredCar {
      *                                  non-positive.
      */
     public GasPoweredCar(String make, String model, double startingMileage, double mpg, double fuelCapacityGallons) {
-
+        super(make, model, startingMileage);
+        if (mpg <= 0 || fuelCapacityGallons <= 0) throw new IllegalArgumentException();
     }
 
     /**
