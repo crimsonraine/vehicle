@@ -12,10 +12,7 @@ public abstract class ElectricCar extends Car {
     }
 
     public ElectricCar(String make, String model, double milesOnMaxCharge) {
-        super(make, model);
-        if (milesOnMaxCharge <= 0) throw new IllegalArgumentException();
-        this.milesOnMaxCharge = milesOnMaxCharge;
-        recharge();
+        this(make, model, 0, milesOnMaxCharge);
     }
 
     public void drive(double miles) {
