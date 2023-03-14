@@ -3,24 +3,24 @@ package vehicle;
 public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{ // extends GasPoweredCar {
     /** FordFrivolous has a gas tank of 20 gallons and an MPG of 23.6. */
     public FordFrivolous(double startingMileage) {
-        
+        super("Ford", "Frivolous", startingMileage, 20, 23.6);
     }
 
     /** Defaults mileage to 0. */
     public FordFrivolous() {
-        
+        this(0);
     }
 
     @Override
     public boolean canFly(double miles) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'canFly'");
+        return miles >= 0;
     }
 
     @Override
     public void fly(double miles) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fly'");
+        if (canFly(miles)) {
+            this.fuelLevel -= (miles / this.mpg) * 3;
+        }
     }
 
     @Override
