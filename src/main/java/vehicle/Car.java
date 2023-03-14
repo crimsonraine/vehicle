@@ -28,7 +28,8 @@ public abstract class Car {
     public abstract void drive(double miles);
 
     public String toString() {
-        return getMake() + " " + getModel() + " (" + getMileage() + " mi)";
+        return String.format("%s %s (%.1f mi)", getMake(), getModel(), getMileage());
+        //return getMake() + " " + getModel() + " (" + getMileage() + " mi)";
     }
 
     public double getMileage() {

@@ -16,7 +16,7 @@ public abstract class ElectricCar extends Car {
     }
 
     public void drive(double miles) {
-        if (miles < 0 || !canDrive(miles)) throw new IllegalArgumentException();
+        if (!canDrive(miles)) throw new IllegalArgumentException();
         addMileage(miles);
         decreaseCharge(miles);
     }

@@ -9,8 +9,7 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving {
     }
 
     public TeslaModelZ(int modelNum) {
-        super("Tesla", "Z", 340);
-        this.modelNum = modelNum;
+        this(0, modelNum);
     }
 
     public int getModelNum() {
@@ -22,7 +21,8 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving {
     }
 
     public String toString() {
-        return getMake() + " " + getModel() + getModelNum() + " (" + getMileage() + " mi)";
+        return String.format("%s %s%d (%.1f mi)", getMake(), getModel(), getModelNum(), getMileage());
+        //return getMake() + " " + getModel() + getModelNum() + " (" + getMileage() + " mi)";
     }
 
     public void driveAutonomously(double miles) {
