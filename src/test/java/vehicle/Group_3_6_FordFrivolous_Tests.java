@@ -71,11 +71,12 @@ public class Group_3_6_FordFrivolous_Tests {
         ford.refillTank();
         assertEquals(472.0, ford.getRemainingRange(), .1, "Remaining range should restart again as 20 * 23.6 after refill.");
 
-        assertFalse(ford.canFly(-110.0), "Should not be able to fly a negative distance (-110).");
-        assertTrue(ford.canFly(100.0), "Should not be able to fly a positive distance (100).");
+        assertFalse(ford.canFly(-110.0), "Should not be able to fly a negative distance (-110.0).");
+        assertTrue(ford.canFly(0.0), "Should be able to fly no distance (0.0).");
+        assertTrue(ford.canFly(100.0), "Should be able to fly a positive distance (100.0).");
 
         ford.fly(110.0);
-        assertEquals(20.0 - 16.5, ford.getFuelLevel(), "Fuel level is incorrect after flying.");
+        assertEquals(23.6 - 16.5, ford.getFuelLevel(), "Fuel level is incorrect after flying.");
         assertEquals(521.7, ford.getMileage(), "Mileage is incorrect after flying. It should not have changed.");
     }
     
