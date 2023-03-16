@@ -39,7 +39,7 @@ public class GasPoweredCar extends Car {
     public void drive(double miles) {
         if (miles < 0) throw new IllegalArgumentException();
         if (canDrive(miles)) {
-            drive(miles);
+            addMileage(miles);
             decreaseFuelLevel(miles);
         } else {
             throw new IllegalArgumentException();
