@@ -11,9 +11,9 @@ public class Group_3_6_FordFrivolous_Tests {
     @Test
     public void fordConstructorTest1() {
         FordFrivolous ford = new FordFrivolous();
-        assertEquals(20.0, ford.getFuelCapacity(),  0.1, "Initial fuel capacity not correct.");
-        assertEquals(20.0, ford.getFuelLevel(),  0.1, "The car should begin full.");
-        assertEquals(23.6, ford.getMPG(), 0.1, "Initial mpg not correct.");
+        assertEquals(23.6, ford.getFuelCapacity(),  0.1, "Initial fuel capacity not correct.");
+        assertEquals(23.6, ford.getFuelLevel(),  0.1, "The car should begin full.");
+        assertEquals(20.0, ford.getMPG(), 0.1, "Initial mpg not correct.");
         assertEquals(0.0, ford.getMileage(), 0.1, "Default mileage should be zero.");
         assertEquals(ford.getFuelCapacity() * ford.getMPG(), ford.getRemainingRange(), 0.1,
                 "Remaining range of car not correct at creation.");
@@ -25,9 +25,9 @@ public class Group_3_6_FordFrivolous_Tests {
     @Test
     public void fordMileageConstructorTest2() {
         FordFrivolous ford = new FordFrivolous(30.0);
-        assertEquals(20.0, ford.getFuelCapacity(),  0.1, "Initial fuel capacity not correct.");
+        assertEquals(23.6, ford.getFuelCapacity(),  0.1, "Initial fuel capacity not correct.");
         assertEquals(ford.getFuelCapacity(), ford.getFuelLevel(), 0.1, "The car should begin full.");
-        assertEquals(23.6, ford.getMPG(), 0.1, "Initial mpg not correct.");
+        assertEquals(20.0, ford.getMPG(), 0.1, "Initial mpg not correct.");
         assertEquals(30.0, ford.getMileage(), 0.1, "Default mileage should be zero.");
         assertEquals(ford.getFuelCapacity() * ford.getMPG(), ford.getRemainingRange(), 0.1,
                 "Remaining range of car not correct at creation.");
