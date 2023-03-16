@@ -65,6 +65,10 @@ public class Group3_6_TeslaModelZ_Tests {
         tesla.recharge();
         assertEquals(340, tesla.getRemainingRange(), 0.1, "Remaining range should be 340 after recharge.");
 
+        assertThrows(IllegalArgumentException.class, () -> {
+            tesla.driveAutonomously(-1);
+        }, "Cannot drive negative distances.");
+
         tesla.driveAutonomously(200);
         assertEquals(140, tesla.getRemainingRange(), 0.1, "Remaining range should be 140 after autonomous drive 1.");
 
