@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class Group3_6_TeslaModelZ_Tests {
+public class Group_3_6_TeslaModelZ_Tests {
 
     @Test
     public void teslaConstructorTest1() {
