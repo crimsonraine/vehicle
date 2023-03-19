@@ -99,7 +99,7 @@ public class Group_3_6_FordFrivolous_Tests {
         assertEquals(272.0, ford.getRemainingRange(), 0.1, "Remaining range should be 220 after autonomous drive 2 of distance 200.0");
 
         List<Double> milesEachDay = Arrays.asList(5.7, 159.0, 201.3);
-        assertEquals(2, ford.roadTrip(milesEachDay), .1, "Should be able to drive all 3 days.");
+        assertEquals(2, ford.roadTrip(milesEachDay), .1, "Should be able to drive first 2 days only.");
 
         milesEachDay = Arrays.asList(53.0, 54.0, 0.2, 0.15, 0.01);
         assertEquals(3, ford.roadTrip(milesEachDay), .1, "Should be able to drive first 3 days.");
