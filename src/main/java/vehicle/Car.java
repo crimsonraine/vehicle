@@ -55,7 +55,7 @@ public abstract class Car {
         int dayCount = 0;
         for (double routeLength : milesEachDay) {
             if (routeLength < 0) throw new IllegalArgumentException();
-            if (routeLength < getRemainingRange()) {
+            if (routeLength > getRemainingRange()) {
                 return dayCount;
             } else {
                 drive(routeLength);
