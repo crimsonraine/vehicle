@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class Group_3_6_TeslaModelZ_Tests {
@@ -74,5 +77,13 @@ public class Group_3_6_TeslaModelZ_Tests {
 
         tesla.driveAutonomously(200);
         assertEquals(0, tesla.getRemainingRange(), 0.1, "Remaining range should be 0 after autonomous drive 2.");
+    
+        tesla.recharge();
+
+        List<Double> milesEachDay = Arrays.asList(5.7, 159.0, 201.3);
+        assertEquals(2, tesla.roadTrip(milesEachDay), .1, "Should be able to drive first 2 days only.");
+
+        milesEachDay = Arrays.asList(53.0, 54.0, 40.2, 30.15, 0.01);
+        assertEquals(3, tesla.roadTrip(milesEachDay), .1, "Should be able to drive first 3 days.");
     }
 }
