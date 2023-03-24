@@ -32,8 +32,8 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
     @Override
     public void driveAutonomously(double miles) {
         if (miles < 0) throw new IllegalArgumentException();
-        drive(Math.min(getRemainingRange(), miles));
-        this.decreaseFuelLevel(Math.min(getRemainingRange(), miles));
-        this.mileage -= Math.min(getRemainingRange(), miles);
+        double distance = Math.min(getRemainingRange(), miles*2);
+        drive(distance);
+        this.mileage -= distance/2;
     }
 }
