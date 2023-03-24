@@ -3,7 +3,7 @@ package vehicle;
 public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{ // extends GasPoweredCar {
     /** FordFrivolous has a gas tank of 20 gallons and an MPG of 23.6. */
     public FordFrivolous(double startingMileage) {
-        super("Ford", "Frivolous", startingMileage, 20.0, 23.6);
+        super("Ford", "Frivolous", startingMileage, 23.6, 20.0);
     }
 
     /** Defaults mileage to 0. */
@@ -19,7 +19,7 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
     @Override
     public void fly(double miles) {
         if (canFly(miles)) {
-            this.fuelLevel -= (miles / this.mpg) * 3;
+            this.fuelLevel -= (miles / this.mpg);
         }
     }
 
