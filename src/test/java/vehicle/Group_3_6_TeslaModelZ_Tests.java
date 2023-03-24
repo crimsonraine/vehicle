@@ -19,7 +19,7 @@ public class Group_3_6_TeslaModelZ_Tests {
         assertEquals(340, tesla.getMaxRange(),  0.1, "Max range is incorrect.");
         assertEquals(tesla.getMaxRange(), tesla.getRemainingRange(), 0.1, "The car should begin at full charge.");
         assertTrue(tesla.getMake().equals("Tesla"), "Car's make should be \"Tesla\".");
-        assertTrue(tesla.getModel().equals("Z"), "Car's model should be \"Z\".");
+        assertTrue(tesla.getModel().equals("Z70"), "Car's model should be \"Z70\".");
         assertTrue(tesla.toString().equals("Tesla Z70 (0.0 mi)"), "Incorrect toString.");
     }
 
@@ -30,7 +30,7 @@ public class Group_3_6_TeslaModelZ_Tests {
         assertEquals(340, tesla.getMaxRange(),  0.1, "Max range is incorrect.");
         assertEquals(tesla.getMaxRange(), tesla.getRemainingRange(), 0.1, "The car should begin at full charge.");
         assertTrue(tesla.getMake().equals("Tesla"), "Car's make should be \"Tesla\".");
-        assertTrue(tesla.getModel().equals("Z"), "Car's model should be \"Z\".");
+        assertTrue(tesla.getModel().equals("Z70"), "Car's model should be \"Z70\".");
         assertTrue(tesla.toString().equals("Tesla Z70 (30.0 mi)"), "Incorrect toString.");
     }
 
