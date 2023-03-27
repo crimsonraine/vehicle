@@ -61,7 +61,7 @@ public abstract class GasPoweredCar extends Car {
 
     /** Refuels the car to max fuel capacity. */
     public void refillTank() {
-        this.fuelLevel = this.fuelCapacityGallons;
+        this.fuelLevel = getFuelCapacity();
     }
 
     /**
@@ -69,7 +69,7 @@ public abstract class GasPoweredCar extends Car {
      * refueling.
      */
     public double getRemainingRange() {
-        return this.fuelLevel * this.mpg;
+        return getFuelLevel() * getMPG();
     }
 
     /**
@@ -79,7 +79,7 @@ public abstract class GasPoweredCar extends Car {
      *                                  would overfill the tank.
      */
     public void refillTank(double gallons) {
-        if (gallons < 0 || this.fuelLevel + gallons > this.fuelCapacityGallons) throw new IllegalArgumentException();
+        if (gallons < 0 || getFuelLevel() + gallons > getFuelCapacity()) throw new IllegalArgumentException();
         this.fuelLevel += gallons;
     }
 
@@ -88,7 +88,7 @@ public abstract class GasPoweredCar extends Car {
      * mpg and the number of miles passed as an argument.
      */
     protected void decreaseFuelLevel(double miles) {
-        this.fuelLevel -= miles / this.mpg;
+        this.fuelLevel -= miles / getMPG();
         this.mileage += miles;
     }
 }
